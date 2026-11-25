@@ -157,7 +157,7 @@
           <div class="bg-[var(--background)] border border-[var(--border)] rounded-xl p-4">
             <div class="flex items-center justify-between mb-2">
               <h4 class="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)]">
-                Normalize Shannon Entropisi $H_{\text{norm}}(t)$ (0.0 - 1.0)
+                Normalize Shannon Entropisi H_norm(t) (0.0 - 1.0)
               </h4>
               <span id="gossip-entropy-val" class="font-mono text-sm font-bold text-blue-500">H: 0.6610</span>
             </div>
@@ -197,7 +197,7 @@
 
           <!-- Academic Context Pill -->
           <div class="p-3 bg-blue-500/10 border border-blue-500/20 rounded-xl text-xs text-[var(--foreground)]">
-            <span class="font-bold text-blue-500">Hakem Yanıtı & Doktora Çıktısı:</span> Ahmet Sualp Gedikli'nin Reddit crawl verilerindeki düz entropi eğrisi, baseline uyarılmanın $\tau_{reg} < 0.42$ kalmasından kaynaklanıyordu. ECAGP'nin Denklem 11 Karşıt-Token motoru şok esnasında devreye girerek eğriyi aktif olarak kırar.
+            <span class="font-bold text-blue-500">Hakem Yanıtı & Doktora Çıktısı:</span> Ahmet Sualp Gedikli'nin Reddit crawl verilerindeki düz entropi eğrisi, baseline uyarılmanın τ_reg &lt; 0.42 kalmasından kaynaklanıyordu. ECAGP'nin Denklem 11 Karşıt-Token motoru şok esnasında devreye girerek eğriyi aktif olarak kırar.
           </div>
 
         </div>
@@ -214,7 +214,7 @@
         <div>
           <h3 class="text-sm font-bold">6G O-RAN Çoklu-Dilim (Multi-Slice) Kapalı Çevrim Güvenlik Kontrol Odası</h3>
           <p class="text-xs text-[var(--muted-foreground)] mt-0.5">
-            E2 Arayüzü Yanal Hareket İhlal Saldırısı ($N=240$ Olay, Şok Penceresi $[80, 140)$)
+            E2 Arayüzü Yanal Hareket İhlal Saldırısı (N=240 Olay, Şok Penceresi [80, 140))
           </p>
         </div>
         <div class="flex items-center gap-3">
@@ -359,7 +359,7 @@
         <div>
           <h3 class="text-sm font-bold">ClinAssure: Karaciğer Nakli Tıbbi Yapay Zeka Meta-Güvence Arayüzü</h3>
           <p class="text-xs text-[var(--muted-foreground)] mt-0.5">
-            UNOS / OPTN Ulusal Kayıt Kohortu ($N=43,269$) • EU AI Act Ek III & FDA SaMD Uyumlu Rota Motoru
+            UNOS / OPTN Ulusal Kayıt Kohortu (N=43,269) • EU AI Act Ek III & FDA SaMD Uyumlu Rota Motoru
           </p>
         </div>
         <div class="flex items-center gap-3">
@@ -385,18 +385,18 @@
             
             <div>
               <div class="flex justify-between text-xs mb-1">
-                <span>Toplamsal Güvence ($\mathcal{A}_{\text{add}}$):</span>
+                <span>Toplamsal Güvence (A_add):</span>
                 <span id="score-additive" class="font-mono font-bold text-emerald-500">0.8056 (EŞİK GEÇİLDİ)</span>
               </div>
               <div class="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2.5 overflow-hidden">
                 <div id="bar-additive" class="bg-emerald-500 h-2.5 rounded-full transition-all duration-500" style="width: 80.56%"></div>
               </div>
-              <span class="text-[11px] text-[var(--muted-foreground)]">Heyet Doğrudan Sevk Eşiği: $\ge 0.80$</span>
+              <span class="text-[11px] text-[var(--muted-foreground)]">Heyet Doğrudan Sevk Eşiği: ≥ 0.80</span>
             </div>
 
             <div class="pt-2">
               <div class="flex justify-between text-xs mb-1">
-                <span>Muhafazakar Çarpımsal Güvence ($\mathcal{A}_{\text{cons}} = \prod s_k$):</span>
+                <span>Muhafazakar Çarpımsal Güvence (A_cons = ∏ s_k):</span>
                 <span id="score-conservative" class="font-mono font-bold text-blue-500">0.112314</span>
               </div>
               <div class="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-2.5 overflow-hidden">
@@ -913,6 +913,9 @@
     window.addEventListener('DOMContentLoaded', () => {
       initGossipNodes();
       updateClinAssureModel('symbolic_tree');
+      const params = new URLSearchParams(window.location.search);
+      const initialTab = params.get('tab') || 'gossip';
+      switchTab(initialTab);
     });
   </script>
 </body>
