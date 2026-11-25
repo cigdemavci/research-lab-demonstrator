@@ -2,7 +2,9 @@
 
 > **Sürüm:** v1.0.0-Q1  
 > **Lisans & Telif:** Dr. Çiğdem Avcı Araştırma Laboratuvarı © 2026 • TOBB ETÜ Bilgisayar Mühendisliği Bölümü  
-> **Erişim Portu:** `http://localhost:8080`  
+> **Canlı Çevrimiçi Web Erişimi (Kurulumsuz):** [https://cigdemavci.github.io/research-lab-demonstrator/](https://cigdemavci.github.io/research-lab-demonstrator/)  
+> **Bağımsız GitHub Deposu:** [cigdemavci/research-lab-demonstrator](https://github.com/cigdemavci/research-lab-demonstrator)  
+> **Yerel Web Servisi:** `http://localhost:8080` (Daemon: `gui_server.py`)  
 > **Teknoloji Yığını:** Saf Python 3 Standart Kütüphanesi (`http.server`) • Vanilla JS (ES6+) • HTML5 Canvas • Tailwind CSS  
 > **Mimari İlke:** [ADR-002: Sıfır Harici Bağımlılık (Zero External Dependencies)](file:///home/cigdem/.gemini/antigravity/scratch/research_implementations/01_PROJECTS/01_ADAPTIVE_EXPLAINABLE_SYSTEMS/EXPLAINABLE_CYBERSECURITY/ARCHITECTURE_DECISION_FRAMEWORK.md)
 
@@ -75,13 +77,30 @@ Press Ctrl+C to stop the server.
 
 ### 3.2. Tarayıcıdan Erişim ve Derin Linkleme (Deep Linking)
 
-Tarayıcınızda doğrudan istediğiniz projeyi açmak için URL parametrelerini kullanabilirsiniz:
+Ekipler ve hakemler hiçbir kurulum yapmadan **canlı GitHub Pages web linki** üzerinden veya yerel sunucu üzerinden doğrudan istedikleri projeyi açabilirler:
 
-| Proje / Sekme | Doğrudan Erişim URL'si | Açıklama |
+| Proje / Sekme | 🌐 Canlı Web Bağlantısı (Kurulumsuz) | 💻 Yerel Sunucu Bağlantısı |
 | :--- | :--- | :--- |
-| **Genel Panel / Dedikodu** | `http://localhost:8080/` veya `?tab=gossip` | $N=100$ ajanlı P2P sosyal ağ simülasyonu |
-| **Siber Güvenlik** | `http://localhost:8080/?tab=cyber` | 6G O-RAN EAL tri-policy ve yol izleme |
-| **ClinAssure** | `http://localhost:8080/?tab=clinassure` | Tıbbi YZ meta-güvence ve denetim kapıları |
+| **Genel Panel / Dedikodu** | [Aç (Live Web)](https://cigdemavci.github.io/research-lab-demonstrator/?tab=gossip) | `http://localhost:8080/?tab=gossip` |
+| **Siber Güvenlik (6G)** | [Aç (Live Web)](https://cigdemavci.github.io/research-lab-demonstrator/?tab=cyber) | `http://localhost:8080/?tab=cyber` |
+| **ClinAssure (Tıbbi YZ)** | [Aç (Live Web)](https://cigdemavci.github.io/research-lab-demonstrator/?tab=clinassure) | `http://localhost:8080/?tab=clinassure` |
+
+---
+
+### 3.3. İki Yönlü Git Senkronizasyonu (Monorepo ⟷ Bağımsız Repo)
+
+Bu arayüz, Dr. Çiğdem Avcı'nın ana araştırma monoreposu (`research_implementations`) ile bağımsız açık prototip deposu (`research-lab-demonstrator`) arasında iki yönlü senkronize kalır:
+
+```bash
+# Ana repodan bağımsız repoya değişiklikleri göndermek için:
+./sync_gui.sh push
+
+# Bağımsız repodaki olası harici katkıları ana repoya çekmek için:
+./sync_gui.sh pull
+
+# Senkronizasyon durumunu ve son commitleri görmek için:
+./sync_gui.sh status
+```
 
 ---
 
